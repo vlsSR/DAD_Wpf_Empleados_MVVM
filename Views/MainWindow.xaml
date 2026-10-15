@@ -35,12 +35,12 @@
 
                     <!-- Disponible -->
                     <StackPanel Width="160" Margin="0,6,10,0" VerticalAlignment="Center">
-                        <CheckBox Content="Disponible en stock" IsChecked="{Binding NuevoDisponible}" />
+                        <CheckBox Content="Jornada Completa" IsChecked="{Binding NuevoActivo}" />
                     </StackPanel>
 
                     <!-- Botón -->
                     <StackPanel Width="160" Margin="0,6,0,0" VerticalAlignment="Center">
-                        <Button Content="Añadir a la lista" Command="{Binding AgregarProductoCommand}" Padding="8" Background="#007ACC" Foreground="White" FontWeight="Bold"/>
+                        <Button Content="Añadir a la lista" Command="{Binding AgregarEmpleadoCommand}" Padding="8" Background="#007ACC" Foreground="White" FontWeight="Bold"/>
                     </StackPanel>
                 </WrapPanel>
             </StackPanel>
@@ -57,14 +57,14 @@
             <TextBlock Grid.Row="0" Text="Listado de Productos (Mockup)" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
 
             <!-- ListView con GridView -->
-            <ListView Grid.Row="1" ItemsSource="{Binding Productos}" SelectedItem="{Binding ProductoSeleccionado}">
+            <ListView Grid.Row="1" ItemsSource="{Binding Empleados}" SelectedItem="{Binding EmpleadoSeleccionado}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}" Width="40"/>
                         <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding Nombre}" Width="160"/>
-                        <GridViewColumn Header="Categoría" DisplayMemberBinding="{Binding Categoria}" Width="110"/>
-                        <GridViewColumn Header="Precio" DisplayMemberBinding="{Binding Precio, StringFormat={}{0:C}}" Width="80"/>
-                        <GridViewColumn Header="Stock" DisplayMemberBinding="{Binding Disponible}" Width="60"/>
+                        <GridViewColumn Header="Departamento" DisplayMemberBinding="{Binding Departamento}" Width="110"/>
+                        <GridViewColumn Header="Salario" DisplayMemberBinding="{Binding Salario, StringFormat={}{0:C}}" Width="80"/>
+                        <GridViewColumn Header="Jornada Completa" DisplayMemberBinding="{Binding JornadaCompleta}" Width="60"/>
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -72,7 +72,7 @@
             <!-- TextBlock inferior con información del elemento seleccionado -->
             <TextBlock Grid.Row="2" Margin="0,10,0,0" FontWeight="SemiBold">
                 <Run Text="Seleccionado: " />
-                <Run Text="{Binding ProductoSeleccionado.Nombre, FallbackValue='Ninguno'}" Foreground="#007ACC" FontWeight="Bold"/>
+                <Run Text="{Binding EmpleadoSeleccionado.Nombre, FallbackValue='Ninguno'}" Foreground="#007ACC" FontWeight="Bold"/>
             </TextBlock>
         </Grid>
     </Grid>
