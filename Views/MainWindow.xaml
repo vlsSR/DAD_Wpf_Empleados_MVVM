@@ -10,43 +10,37 @@
         
     <Grid Margin="15">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/> <!-- fila superior: formulario -->
-            <RowDefinition Height="*"/>    <!-- fila inferior: lista -->
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>   
         </Grid.RowDefinitions>
 
-        <!-- PANEL IZQUIERDO: Formulario de alta -->
+        <!-- PANEL SUPERIOR: Formulario -->
         <Border Grid.Row="0" Background="#F4F4F6" CornerRadius="8" Padding="15" Margin="0,0,0,15">
             <StackPanel>
-                <TextBlock Text="Añadir Producto" FontSize="18" FontWeight="Bold" Margin="0,0,0,15"/>
+                <TextBlock Text="Añadir Empleado" FontSize="18" FontWeight="Bold" Margin="0,0,0,15"/>
 
-                <!-- Contenedor horizontal para campos -->
-                <WrapPanel Orientation="Horizontal" VerticalAlignment="Top">
-                    <!-- Nombre -->
-                    <StackPanel Width="260" Margin="0,0,10,0">
-                        <Label Content="Nombre del Producto:" />
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <!-- Panel Nombre -->
+                    <StackPanel Margin="0,0,0,15">
+                        <Label Content="Nombre del Empleado:" />
                         <TextBox Text="{Binding NuevoNombre, UpdateSourceTrigger=PropertyChanged}" Padding="6"/>
                     </StackPanel>
 
-                    <!-- Categoría -->
-                    <StackPanel Width="220" Margin="0,0,10,0">
-                        <Label Content="Categoría:" />
+                    <!-- Panel Departamento -->
+                    <StackPanel Margin="10,10,15,0">
+                        <Label Content="Departamento:" Padding="0,0,0,3" />
                         <ComboBox ItemsSource="{Binding Departamentos}" SelectedItem="{Binding NuevoDepartamento}" Padding="6"/>
                     </StackPanel>
 
-                    <!-- Disponible -->
-                    <StackPanel Width="160" Margin="0,6,10,0" VerticalAlignment="Center">
-                        <CheckBox Content="Jornada Completa" IsChecked="{Binding NuevoActivo}" />
-                    </StackPanel>
-
-                    <!-- Botón -->
-                    <StackPanel Width="160" Margin="0,6,0,0" VerticalAlignment="Center">
-                        <Button Content="Añadir a la lista" Command="{Binding AgregarEmpleadoCommand}" Padding="8" Background="#007ACC" Foreground="White" FontWeight="Bold"/>
-                    </StackPanel>
-                </WrapPanel>
+                    <!-- Checkbox JornadaCompleta -->
+                    <CheckBox Content="Jornada Completa" IsChecked="{Binding NuevoActivo}" Margin="0,15,10,0" VerticalAlignment="Center"/>
+                    <Button Content="Añadir a la lista" Command="{Binding AgregarEmpleadoCommand}" 
+                        Padding="13,6" Background="#007ACC" Foreground="White" FontWeight="Bold" Height="30" Margin="0,15,0,0"/>
+                </StackPanel>
             </StackPanel>
         </Border>
 
-        <!-- PANEL DERECHO: Lista de productos -->
+        <!-- PANEL DERECHO: Lista de empleados -->
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -54,7 +48,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" Text="Listado de Productos (Mockup)" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+            <TextBlock Grid.Row="0" Text="Listado de Empleados" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
 
             <!-- ListView con GridView -->
             <ListView Grid.Row="1" ItemsSource="{Binding Empleados}" SelectedItem="{Binding EmpleadoSeleccionado}">
