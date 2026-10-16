@@ -58,7 +58,7 @@
                         <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding Nombre}" Width="160"/>
                         <GridViewColumn Header="Departamento" DisplayMemberBinding="{Binding Departamento}" Width="110"/>
                         <GridViewColumn Header="Salario" DisplayMemberBinding="{Binding Salario, StringFormat={}{0:C}}" Width="80"/>
-                        <GridViewColumn Header="Jornada Completa" DisplayMemberBinding="{Binding JornadaCompleta}" Width="60"/>
+                        <GridViewColumn Header="Jornada Completa" DisplayMemberBinding="{Binding JornadaCompleta}" Width="110"/>
                     </GridView>
                 </ListView.View>
             </ListView>
