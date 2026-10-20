@@ -48,7 +48,7 @@ namespace WpfApp1.ViewModels
 
         private bool CanAgregar => !string.IsNullOrWhiteSpace(NuevoNombre);
 
-        [RelayCommand]
+        [RelayCommand(CanExecute = nameof(CanAgregar))]
         public void AgregarEmpleado()
         {
             var nuevo = new Empleado
